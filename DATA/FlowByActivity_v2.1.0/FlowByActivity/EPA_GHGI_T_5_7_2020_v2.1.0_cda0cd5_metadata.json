@@ -1,0 +1,17 @@
+{
+    "tool": "flowsa",
+    "category": "FlowByActivity",
+    "name_data": "EPA_GHGI_T_5_7_2020",
+    "tool_version": "2.1.0",
+    "git_hash": "cda0cd5",
+    "ext": "parquet",
+    "date_created": "2025-08-29 11:12:36",
+    "tool_meta": {
+        "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+        "data_year": "2020",
+        "author": "US Environmental Protection Agency",
+        "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+        "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+        "bib_id": "EPA_GHGI"
+    }
+}

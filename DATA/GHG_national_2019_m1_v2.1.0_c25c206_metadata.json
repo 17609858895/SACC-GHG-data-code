@@ -1,0 +1,811 @@
+{
+    "tool": "flowsa",
+    "category": "FlowBySector",
+    "name_data": "GHG_national_2019_m1",
+    "tool_version": "2.1.0",
+    "git_hash": "c25c206",
+    "ext": "parquet",
+    "date_created": "2025-09-23 21:16:35",
+    "tool_meta": {
+        "method_url": "https://github.com/USEPA/flowsa/blob/c25c20644de293d47b63eab206e3bce46cd53acf/flowsa/methods/flowbysectormethods/GHG_national_2019_m1.yaml",
+        "primary_source_meta": {
+            "EPA_GHGI_T_2_1": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_2_1_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:23",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Supply": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Supply_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:47",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Supply.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Supply",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Supply"
+                        }
+                    },
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_3_64": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_64_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:25",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_3_66": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_66_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:25",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_3_68": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_68_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:25",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_3_45": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_45_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:25",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_3_47": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_47_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:25",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_3_49": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_49_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:25",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_5_29": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_5_29_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:28",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_5_3": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_5_3_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:28",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_5_7": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_5_7_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:28",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_5_18": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_5_18_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:28",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {}
+            },
+            "EPA_GHGI_T_5_19": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_5_19_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:28",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {}
+            },
+            "EPA_GHGI_T_3_13": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_13_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:24",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_3_14": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_14_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:24",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_3_15": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_15_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:24",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_4_55": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_55_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:26",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_59": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_59_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:26",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_63": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_63_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:27",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_64": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_64_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:27",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_118": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_118_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:27",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_132": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_132_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:28",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_124": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_124_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:27",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_A_90": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_A_90_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:29",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_100": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_100_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:26",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_4_106": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_4_106_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:27",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                }
+            },
+            "EPA_GHGI_T_3_25b": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_25b_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:24",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "EIA_MECS_Energy": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "EIA_MECS_Energy_2018",
+                        "tool_version": "2.0.0",
+                        "git_hash": "c31283d",
+                        "ext": "parquet",
+                        "date_created": "2023-09-06 21:59:43",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/c31283d4bb0a3bae698853a0f02af1970b2c0f8b/flowsa/methods/flowbyactivitymethods/EIA_MECS_Energy.yaml",
+                            "data_year": "2018",
+                            "author": "US Energy Information Administration",
+                            "source_name": "Manufacturing Energy Consumption Survey",
+                            "source_url": "https://www.eia.gov/consumption/manufacturing/",
+                            "bib_id": "EIA_MECS"
+                        }
+                    },
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_A_9": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_A_9_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:28",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    },
+                    "EIA_MECS_Energy": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "EIA_MECS_Energy_2018",
+                        "tool_version": "2.0.0",
+                        "git_hash": "c31283d",
+                        "ext": "parquet",
+                        "date_created": "2023-09-06 21:59:43",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/c31283d4bb0a3bae698853a0f02af1970b2c0f8b/flowsa/methods/flowbyactivitymethods/EIA_MECS_Energy.yaml",
+                            "data_year": "2018",
+                            "author": "US Energy Information Administration",
+                            "source_name": "Manufacturing Energy Consumption Survey",
+                            "source_url": "https://www.eia.gov/consumption/manufacturing/",
+                            "bib_id": "EIA_MECS"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_3_8": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_8_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:24",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Supply": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Supply_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:47",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Supply.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Supply",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Supply"
+                        }
+                    },
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    },
+                    "EIA_MECS_Energy": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "EIA_MECS_Energy_2018",
+                        "tool_version": "2.0.0",
+                        "git_hash": "c31283d",
+                        "ext": "parquet",
+                        "date_created": "2023-09-06 21:59:43",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/c31283d4bb0a3bae698853a0f02af1970b2c0f8b/flowsa/methods/flowbyactivitymethods/EIA_MECS_Energy.yaml",
+                            "data_year": "2018",
+                            "author": "US Energy Information Administration",
+                            "source_name": "Manufacturing Energy Consumption Survey",
+                            "source_url": "https://www.eia.gov/consumption/manufacturing/",
+                            "bib_id": "EIA_MECS"
+                        }
+                    }
+                }
+            },
+            "EPA_GHGI_T_3_9": {
+                "tool": "flowsa",
+                "category": "FlowByActivity",
+                "name_data": "EPA_GHGI_T_3_9_2019",
+                "tool_version": "2.1.0",
+                "git_hash": "cda0cd5",
+                "ext": "parquet",
+                "date_created": "2025-08-29 11:12:24",
+                "tool_meta": {
+                    "method_url": "https://github.com/USEPA/flowsa/blob/cda0cd5c3ca74baf7efdb42df74224cde385be37/flowsa/methods/flowbyactivitymethods/EPA_GHGI.yaml",
+                    "data_year": "2019",
+                    "author": "US Environmental Protection Agency",
+                    "source_name": "Inventory of US Greenhouse Gas Emissions and Sinks: 1990-2023",
+                    "source_url": "https://www.edf.org/freedom-information-act-documents-epas-greenhouse-gas-inventory",
+                    "bib_id": "EPA_GHGI"
+                },
+                "attribution_source_meta": {
+                    "BEA_Detail_Supply": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Supply_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:47",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Supply.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Supply",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Supply"
+                        }
+                    },
+                    "BEA_Detail_Use_SUT": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "BEA_Detail_Use_SUT_2017",
+                        "tool_version": "2.0.2",
+                        "git_hash": "6b91cca",
+                        "ext": "parquet",
+                        "date_created": "2024-05-23 21:23:46",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/6b91cca94bfad2313d0d435d5c3b03e77d647cb7/flowsa/methods/flowbyactivitymethods/BEA_Detail_Use_SUT.yaml",
+                            "data_year": "2017",
+                            "author": "U.S. Bureau of Economic Analysis",
+                            "source_name": "Detail Use SUT",
+                            "source_url": "https://www.bea.gov/industry/input-output-accounts-data#supplemental-estimate-tables",
+                            "original_data_download_date": "2024-05-23",
+                            "bib_id": "BEA_Detail_Use_SUT"
+                        }
+                    },
+                    "EIA_MECS_Energy": {
+                        "tool": "flowsa",
+                        "category": "FlowByActivity",
+                        "name_data": "EIA_MECS_Energy_2018",
+                        "tool_version": "2.0.0",
+                        "git_hash": "c31283d",
+                        "ext": "parquet",
+                        "date_created": "2023-09-06 21:59:43",
+                        "tool_meta": {
+                            "method_url": "https://github.com/USEPA/flowsa/blob/c31283d4bb0a3bae698853a0f02af1970b2c0f8b/flowsa/methods/flowbyactivitymethods/EIA_MECS_Energy.yaml",
+                            "data_year": "2018",
+                            "author": "US Energy Information Administration",
+                            "source_name": "Manufacturing Energy Consumption Survey",
+                            "source_url": "https://www.eia.gov/consumption/manufacturing/",
+                            "bib_id": "EIA_MECS"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

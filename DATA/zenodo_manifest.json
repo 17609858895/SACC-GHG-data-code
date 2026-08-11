@@ -1,0 +1,133 @@
+{
+  "source_record": "https://zenodo.org/records/17208591",
+  "doi": "10.5281/zenodo.17208591",
+  "downloaded_utc": "2026-07-14T02:04:57.6804264Z",
+  "file_count": 25,
+  "files": [
+    {
+      "Name": "GHGs_by_Industry_ReleaseNotes_v2025.1.0.pdf",
+      "Size": 120323,
+      "MD5": "b7425e9ef7ced7fc43e7f03ccb881656"
+    },
+    {
+      "Name": "GHG_national_2022_m1_v2.1.0_c25c206.parquet",
+      "Size": 41027,
+      "MD5": "9899e8ee1f663e8dd142f6b07c757e7f"
+    },
+    {
+      "Name": "GHG_national_2020_m2_v2.1.0_c25c206_metadata.json",
+      "Size": 89419,
+      "MD5": "23917911de048d3da9258a7e99c770f3"
+    },
+    {
+      "Name": "GHG_national_2023_m2_v2.1.0_c25c206_metadata.json",
+      "Size": 89501,
+      "MD5": "e2694d60bee61d0fa1feab1f7d7b2430"
+    },
+    {
+      "Name": "GHG_national_2021_m1_v2.1.0_c25c206_metadata.json",
+      "Size": 46614,
+      "MD5": "2c6afd161824ec7e7cbca2c842682dd4"
+    },
+    {
+      "Name": "GHG_national_2022_m2_v2.1.0_c25c206.parquet",
+      "Size": 81502,
+      "MD5": "eb34f21f775f7a933b2d3deb395d77af"
+    },
+    {
+      "Name": "GHG_national_2022_m1_v2.1.0_c25c206_metadata.json",
+      "Size": 46614,
+      "MD5": "37ab6b05ae8de7252d159f4377b24c5e"
+    },
+    {
+      "Name": "GHG_national_2019_m2_v2.1.0_c25c206.parquet",
+      "Size": 82231,
+      "MD5": "702778fc5b022c8a6b12229da3aac556"
+    },
+    {
+      "Name": "GHG_national_2021_m2_v2.1.0_c25c206.parquet",
+      "Size": 81568,
+      "MD5": "9ae3d0cb0bbbc9dcaa186de8ef554b30"
+    },
+    {
+      "Name": "GHG_national_2020_m1_v2.1.0_c25c206_metadata.json",
+      "Size": 46614,
+      "MD5": "9e19ffe40716814759725269d36d825b"
+    },
+    {
+      "Name": "GHG_national_2021_m2_v2.1.0_c25c206_metadata.json",
+      "Size": 89505,
+      "MD5": "f58b9dec6be60ec26507c20a090846cc"
+    },
+    {
+      "Name": "GHG_national_2020_m2_v2.1.0_c25c206.parquet",
+      "Size": 80272,
+      "MD5": "3a4d7f284cbe77eb06756ada2e394b3f"
+    },
+    {
+      "Name": "GHG_national_2019_m2_v2.1.0_c25c206_metadata.json",
+      "Size": 89419,
+      "MD5": "b8494ac07b197b970139ecb8c79524df"
+    },
+    {
+      "Name": "GHG_national_2023_m1_v2.1.0_c25c206_metadata.json",
+      "Size": 46612,
+      "MD5": "869dae0e77776b7589c472b8d93f8d3b"
+    },
+    {
+      "Name": "GHG_national_2019_m1_v2.1.0_c25c206.parquet",
+      "Size": 41029,
+      "MD5": "14f6582a066d2229443d4c91a36d4358"
+    },
+    {
+      "Name": "GHG_national_2023_m1_v2.1.0_c25c206.parquet",
+      "Size": 41127,
+      "MD5": "6aedb095b659694d45b89bd2cfc84d8e"
+    },
+    {
+      "Name": "GHG_national_2021_m1_v2.1.0_c25c206.parquet",
+      "Size": 41162,
+      "MD5": "d7f09afd2b42b38f7fef405f11eb6ba3"
+    },
+    {
+      "Name": "GHG_national_2020_m1_v2.1.0_c25c206.parquet",
+      "Size": 41031,
+      "MD5": "11e2046c9fa16c64e206f8a3755ec9be"
+    },
+    {
+      "Name": "GHG_national_2023_m2_v2.1.0_c25c206.parquet",
+      "Size": 81554,
+      "MD5": "35a69dfda1837c0266023faab4050876"
+    },
+    {
+      "Name": "GHG_national_2019_m1_v2.1.0_c25c206_metadata.json",
+      "Size": 46614,
+      "MD5": "9f1aafb02d0e2475b0e3b8067bec3a6b"
+    },
+    {
+      "Name": "GHG_national_2022_m2_v2.1.0_c25c206_metadata.json",
+      "Size": 89505,
+      "MD5": "1a1948c0f014f56b61744b1832946cd4"
+    },
+    {
+      "Name": "FlowByActivity_v2.1.0.zip",
+      "Size": 901267,
+      "MD5": "5b18cdfefb059b43927aed3592cd043c"
+    },
+    {
+      "Name": "GHGs_by_Aggregate_Sector_US_2019-2023_v2025.1.0.xlsx",
+      "Size": 154739,
+      "MD5": "32d202c5089f2679a96b9b190d59374b"
+    },
+    {
+      "Name": "GHG_v2025.1.0_validation.xlsx",
+      "Size": 647993,
+      "MD5": "45e6874b5992b87e501eaa80faaab1ce"
+    },
+    {
+      "Name": "GHGs_by_Detailed_Sector_US_2019-2023_v2025.1.0.xlsx",
+      "Size": 538151,
+      "MD5": "ac614b9635172bf801345d75438e8850"
+    }
+  ]
+}
