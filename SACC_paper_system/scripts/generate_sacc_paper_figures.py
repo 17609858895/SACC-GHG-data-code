@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import re
 import string
 import sys
 import textwrap
@@ -40,8 +41,20 @@ from sklearn.metrics import (
 SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = SYSTEM_ROOT.parent
 DATA_ROOT = PROJECT_ROOT / "DATA"
+# Lineage unit used for perturbations and source concentration.
+#   "series"   : time-consistent source series (default). The year-specific GHGI
+#                Annex tables A-5 to A-9 (2023 to 2019) and the renamed Table
+#                3-25/3-25b are merged so that one source series is not split
+#                into year fragments.
+#   "recorded" : the 103 MetaSources entries exactly as recorded in the release
+#                (original submission; reported as a sensitivity analysis).
+LINEAGE_LEVEL = os.environ.get("SACC_LINEAGE_LEVEL", "series").strip().lower()
+if LINEAGE_LEVEL not in {"series", "recorded"}:
+    raise ValueError("SACC_LINEAGE_LEVEL must be 'series' or 'recorded'")
+_OUTPUT_SUFFIX = "" if LINEAGE_LEVEL == "series" else "sensitivity_recorded_lineages"
 FIG_ROOT = SYSTEM_ROOT / "figures"
-TABLE_ROOT = SYSTEM_ROOT / "tables"
+TABLE_ROOT = SYSTEM_ROOT / "tables" / _OUTPUT_SUFFIX if _OUTPUT_SUFFIX else SYSTEM_ROOT / "tables"
+FIGURE_OUTPUT_ROOT = FIG_ROOT / _OUTPUT_SUFFIX if _OUTPUT_SUFFIX else FIG_ROOT
 NOTEBOOK_ROOT = SYSTEM_ROOT / "notebooks"
 FIG_ROOT.mkdir(parents=True, exist_ok=True)
 TABLE_ROOT.mkdir(parents=True, exist_ok=True)
@@ -108,6 +121,12 @@ def gas_group(gas: str) -> str:
     return "F-gases"
 
 
+def lineage_series(meta_source: str) -> str:
+    """Map a recorded MetaSources entry to its time-consistent source series."""
+    name = re.sub(r"^EPA_GHGI_T_A_[5-9]\.", "EPA_GHGI_T_A_5-9.", str(meta_source))
+    return name.replace("EPA_GHGI_T_3_25b.", "EPA_GHGI_T_3_25.")
+
+
 def read_project_data() -> tuple[pd.DataFrame, pd.DataFrame, dict[str, str]]:
     m2_files = sorted(DATA_ROOT.glob("GHG_national_*_m2_*.parquet"))
     m1_files = sorted(DATA_ROOT.glob("GHG_national_*_m1_*.parquet"))
@@ -123,6 +142,12 @@ def read_project_data() -> tuple[pd.DataFrame, pd.DataFrame, dict[str, str]]:
             raise ValueError(f"Unmapped gases: {missing}")
         frame["CO2e_kg"] = frame["FlowAmount"] * frame["Flowable"].map(GWP_AR5)
         frame["GasGroup"] = frame["Flowable"].map(gas_group)
+        if "MetaSources" in frame:
+            frame["Lineage"] = (
+                frame["MetaSources"].map(lineage_series)
+                if LINEAGE_LEVEL == "series"
+                else frame["MetaSources"]
+            )
     sector_file = DATA_ROOT / "GHGs_by_Detailed_Sector_US_2019-2023_v2025.1.0.xlsx"
     sectors = pd.read_excel(sector_file, sheet_name="Sectors", dtype=str)
     sector_names = dict(zip(sectors["Sector"].astype(str), sectors["SectorName"].astype(str)))
@@ -294,17 +319,20 @@ def humanize_meta_source(name: str) -> str:
     clean = name.replace("EPA_GHGI_", "")
     if "." in clean:
         code, description = clean.split(".", 1)
-        code = code.replace("T_A_", "TA.").replace("T_", "T").replace("_", ".")
+        code = code.replace("T_A_", "TA.").replace("T_", "T").replace("_", ".").replace("5-9", "5–9")
         description = description.replace("_", " ").replace("manufactur", "manufacturing")
         description = description.replace("manufacturinging", "manufacturing")
         description = description.capitalize()
+        description = description.replace("Ng manufacturing", "Natural-gas manufacturing")
+        description = description.replace("Natural gas manufacturing", "Natural-gas manufacturing")
         return f"{description} ({code})"
-    return clean.replace("_", ".")
+    code = clean.replace("T_A_", "TA.").replace("T_", "T").replace("_", ".")
+    return f"Direct source ({code})"
 
 
 def compact_meta_source(name: str) -> str:
     """Short display label for panels that must remain readable at column width."""
-    return humanize_meta_source(name).replace("Natural gas manufacturing", "Natural gas mfg.")
+    return humanize_meta_source(name).replace("Natural-gas manufacturing", "Natural-gas mfg.")
 
 
 def compact_sector_name(name: str, width: int = 29) -> str:
@@ -447,11 +475,11 @@ def compute_leave_one_year_out(
         clr, _ = clr_transform(base)
 
         source_long = subset.groupby(
-            ["MetaSources", "SectorProducedBy", "Flowable"], as_index=False
+            ["Lineage", "SectorProducedBy", "Flowable"], as_index=False
         )["CO2e_kg"].sum()
         source_long["CO2e_kg"] /= len(YEARS) - 1
         source_matrices = [
-            matrix_from_long(source_long[source_long["MetaSources"] == source], sectors, gases)
+            matrix_from_long(source_long[source_long["Lineage"] == source], sectors, gases)
             for source in source_names
         ]
         runs = [
@@ -578,16 +606,16 @@ def run_analysis() -> Analysis:
     clr, composition = clr_transform(base)
 
     source_long = (
-        m2.groupby(["MetaSources", "SectorProducedBy", "Flowable"], as_index=False)["CO2e_kg"].sum()
+        m2.groupby(["Lineage", "SectorProducedBy", "Flowable"], as_index=False)["CO2e_kg"].sum()
     )
     source_long["CO2e_kg"] /= n_years
-    source_names = sorted(source_long["MetaSources"].unique())
+    source_names = sorted(source_long["Lineage"].unique())
     source_matrices = [
-        matrix_from_long(source_long[source_long["MetaSources"] == source], sectors, gases)
+        matrix_from_long(source_long[source_long["Lineage"] == source], sectors, gases)
         for source in source_names
     ]
     if not np.allclose(np.sum(source_matrices, axis=0), base, rtol=1e-9, atol=1e-3):
-        raise AssertionError("MetaSource contributions do not reconstruct the five-year mean matrix")
+        raise AssertionError("Lineage contributions do not reconstruct the five-year mean matrix")
 
     perturbed: list[np.ndarray] = []
     perturbed_clr: list[np.ndarray] = []
@@ -870,7 +898,7 @@ def build_figure_1(a: Analysis) -> list[Callable]:
         .reindex(index=["CO$_2$", "CH$_4$", "N$_2$O", "F-gases"], columns=YEARS, fill_value=0)
     )
     active_pct = 100 * active / len(a.sectors)
-    lineage_totals = a.m2.groupby("MetaSources")["CO2e_kg"].sum().sort_values(ascending=False)
+    lineage_totals = a.m2.groupby("Lineage")["CO2e_kg"].sum().sort_values(ascending=False)
     lineage_cumulative = 100 * lineage_totals.cumsum() / lineage_totals.sum()
 
     def p1(ax):
@@ -1077,7 +1105,8 @@ def build_figure_3(a: Analysis) -> list[Callable]:
         ax.axvline(a.selected_k, color=EDGE, ls="--", lw=1.5)
         style_axis(ax, xlabel="Number of clusters (K)", ylabel="Selection metric")
         ax.set_xticks(k["K"])
-        ax.set_ylim(0.45, 1.03)
+        lower = min(float(k["silhouette"].min()), float((1 - k["PAC"]).min()))
+        ax.set_ylim(np.floor((lower - 0.03) * 20) / 20, 1.03)
         ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.16), ncol=2)
 
     def p2(ax):
@@ -1104,10 +1133,10 @@ def build_figure_3(a: Analysis) -> list[Callable]:
             parts[key].set_color(EDGE); parts[key].set_linewidth(1.3)
         ax.set_xticks([1,2,3], ["Stability", "Source\nHHI", "Fragility"])
         style_axis(ax, ylabel="Sector-level score")
-        ax.set_ylim(-0.02, 1.02)
+        ax.set_ylim(-0.02, 1.14)
         for x, values in zip([1, 2, 3], [a.stability, a.source_hhi, a.fragility]):
-            ax.text(x, max(-0.01, float(np.median(values)) - 0.055), f"{np.median(values):.2f}",
-                    ha="center", fontsize=10.5, fontweight="bold", color=INK)
+            ax.text(x, 1.05, f"median {np.median(values):.2f}",
+                    ha="center", fontsize=9.5, fontweight="bold", color=INK)
 
     def p4(ax):
         d = a.model_comparison
@@ -1123,16 +1152,18 @@ def build_figure_3(a: Analysis) -> list[Callable]:
 
     def p5(ax):
         bars = ax.bar(k["K"], k["minimum_cluster_size"], color=COLORS[2], edgecolor=EDGE)
-        ax.axhline(20, color=EDGE, ls="--", lw=1.3)
+        ax.axhline(20, color=EDGE, ls="--", lw=1.3, zorder=1)
         ax.scatter([a.selected_k],
                    k.loc[k["K"] == a.selected_k, "minimum_cluster_size"],
                    s=95, marker="D", color=COLORS[0], edgecolor=EDGE, zorder=3)
-        for bar, value in zip(bars, k["minimum_cluster_size"]):
-            ax.text(bar.get_x() + bar.get_width()/2, value + 2, f"{int(value)}", ha="center",
-                    fontsize=9.5, fontweight="bold", color=INK)
+        for bar, value, kval in zip(bars, k["minimum_cluster_size"], k["K"]):
+            offset = 9 if int(kval) == a.selected_k else 2
+            ax.text(bar.get_x() + bar.get_width()/2, value + offset, f"{int(value)}", ha="center",
+                    fontsize=9.5, fontweight="bold", color=INK, zorder=4,
+                    bbox={"facecolor": "white", "edgecolor": "none", "pad": 0.6})
         style_axis(ax, xlabel="Number of clusters (K)", ylabel="Minimum cluster size")
         ax.set_xticks(k["K"])
-        ax.set_ylim(0, float(k["minimum_cluster_size"].max()) * 1.20)
+        ax.set_ylim(0, float(k["minimum_cluster_size"].max()) * 1.28)
 
     def p6(ax):
         x = np.sort(sacc_aris)
@@ -1144,8 +1175,8 @@ def build_figure_3(a: Analysis) -> list[Callable]:
             ypos = np.searchsorted(x, value, side="right") / len(x)
             label = humanize_meta_source(a.source_names[rank])
             ax.scatter(value, ypos, s=48, color=COLORS[0], edgecolor=EDGE, zorder=3)
-            ax.annotate(short_name(label, 24), (value, ypos),
-                        xytext=(10, 14 + 18 * annotation_rank), textcoords="offset points",
+            ax.annotate(f"{label} (ARI {value:.3f})", (value, ypos),
+                        xytext=(0.10, 0.62 - 0.13 * annotation_rank), textcoords="axes fraction",
                         fontsize=8.5, fontweight="bold",
                         arrowprops={"arrowstyle": "-", "color": EDGE, "lw": 0.8})
         style_axis(ax, xlabel="Source-perturbation ARI", ylabel="Cumulative lineage fraction")
@@ -1339,7 +1370,7 @@ def build_figure_5(a: Analysis) -> list[Callable]:
         for c,y in cy.items():
             ax.scatter([0.79],[y],s=180,color=COLORS[c-1],edgecolor=EDGE,zorder=3)
             ax.text(0.84,y,f"A{c}",ha="left",va="center",fontsize=12,fontweight="bold")
-        ax.text(0.46,len(top_sources)-0.25,"MetaSource",ha="center",fontweight="bold",fontsize=13)
+        ax.text(0.46,len(top_sources)-0.25,"Lineage",ha="center",fontweight="bold",fontsize=13)
         ax.text(0.79,len(top_sources)-0.25,"Archetype",ha="center",fontweight="bold",fontsize=13)
 
     def p2(ax):
@@ -1351,7 +1382,7 @@ def build_figure_5(a: Analysis) -> list[Callable]:
             for item in bp[key]: item.set_color(EDGE); item.set_linewidth(1.3)
         ax.set_xticks(range(1,a.selected_k+1), [f"A{x}" for x in range(1,a.selected_k+1)])
         style_axis(ax, xlabel="Consensus archetype", ylabel="Sector source HHI")
-        upper = min(0.50, max(0.35, float(np.percentile(a.source_hhi, 95)) * 1.20))
+        upper = min(1.02, max(0.35, float(np.max(a.source_hhi)) * 1.02))
         ax.set_ylim(0, upper)
 
     def p3(ax):
@@ -1440,7 +1471,7 @@ def build_figure_5(a: Analysis) -> list[Callable]:
         equality_limit = min(xlimit, ylimit)
         ax.plot([0, equality_limit], [0, equality_limit], color=EDGE, ls="--", lw=1.2)
         share = 100 * np.mean(instability_component > a.source_hhi)
-        ax.text(0.97, 0.86, f"Instability-dominant sectors: {share:.1f}%", transform=ax.transAxes,
+        ax.text(0.97, 0.86, f"Reassignment-dominant sectors: {share:.1f}%", transform=ax.transAxes,
                 ha="right", va="top", fontsize=9.5, fontweight="bold", color=MUTED)
         style_axis(ax, xlabel="Source concentration (HHI)",
                    ylabel="Reassignment")
@@ -1879,7 +1910,7 @@ def build_figure_9(a: Analysis) -> list[Callable]:
 
 
 def export_ordered_figure(number: int, stem: str, builders: list[Callable], a: Analysis) -> None:
-    folder = FIG_ROOT / f"Fig{number:02d}_{stem}"
+    folder = FIGURE_OUTPUT_ROOT / f"Fig{number:02d}_{stem}"
     folder.mkdir(parents=True, exist_ok=True)
     n_panels = len(builders)
     # Use the same two-column geometry as the final manuscript figure pages.
@@ -1995,7 +2026,9 @@ def export_tables(a: Analysis) -> dict:
         "years": YEARS,
         "n_detailed_sectors": len(a.sectors),
         "n_gases": len(a.gases),
-        "n_meta_sources": len(a.source_names),
+        "lineage_level": LINEAGE_LEVEL,
+        "n_lineages": len(a.source_names),
+        "n_recorded_meta_sources": int(a.m2["MetaSources"].nunique()),
         "annual_mean_national_GtCO2e": float(a.base.sum()/1e12),
         "selected_K": a.selected_k,
         "source_attenuation_factor": SOURCE_ATTENUATION,
