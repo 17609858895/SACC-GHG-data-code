@@ -1152,14 +1152,15 @@ def build_figure_3(a: Analysis) -> list[Callable]:
 
     def p5(ax):
         bars = ax.bar(k["K"], k["minimum_cluster_size"], color=COLORS[2], edgecolor=EDGE)
-        ax.axhline(20, color=EDGE, ls="--", lw=1.3)
+        ax.axhline(20, color=EDGE, ls="--", lw=1.3, zorder=1)
         ax.scatter([a.selected_k],
                    k.loc[k["K"] == a.selected_k, "minimum_cluster_size"],
                    s=95, marker="D", color=COLORS[0], edgecolor=EDGE, zorder=3)
         for bar, value, kval in zip(bars, k["minimum_cluster_size"], k["K"]):
             offset = 9 if int(kval) == a.selected_k else 2
             ax.text(bar.get_x() + bar.get_width()/2, value + offset, f"{int(value)}", ha="center",
-                    fontsize=9.5, fontweight="bold", color=INK)
+                    fontsize=9.5, fontweight="bold", color=INK, zorder=4,
+                    bbox={"facecolor": "white", "edgecolor": "none", "pad": 0.6})
         style_axis(ax, xlabel="Number of clusters (K)", ylabel="Minimum cluster size")
         ax.set_xticks(k["K"])
         ax.set_ylim(0, float(k["minimum_cluster_size"].max()) * 1.28)

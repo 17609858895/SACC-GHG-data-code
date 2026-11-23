@@ -272,7 +272,7 @@ def fig_profiles() -> list:
         ax.plot(x, coord["truck_clr"], marker="o", lw=1.8, color=COLORS[0], label="Truck transportation")
         ax.plot(x, coord["landfill_clr"], marker="s", lw=1.8, color=COLORS[2], label="Solid-waste landfill")
         ax.plot(x, coord["A1_centroid"], ls="--", lw=1.6, color=EDGE, label="A1 centroid")
-        ax.plot(x, coord["A2_centroid"], ls=":", lw=1.6, color=COLORS[1], label="A2 centroid")
+        ax.plot(x, coord["A3_centroid"], ls=":", lw=1.8, color=COLORS[4], label="A3 centroid")
         ax.set_xticks(x, [abbrev.get(g, g.replace("HFC-", "")) for g in coord["gas"]], rotation=70)
         style_axis(ax, ylabel="CLR coordinate")
         plt.setp(ax.get_xticklabels(), fontsize=8)
